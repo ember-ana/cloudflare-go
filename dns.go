@@ -193,7 +193,7 @@ type CreateDNSRecordParams struct {
 
 // CreateDNSRecord creates a DNS record for the zone identifier.
 //
-// API reference: https://api.cloudflare.com/#dns-records-for-a-zone-create-dns-record
+// API reference: https://developers.cloudflare.com/api/resources/dns/subresources/records/methods/create/
 func (api *API) CreateDNSRecord(ctx context.Context, rc *ResourceContainer, params CreateDNSRecordParams) (DNSRecord, error) {
 	if rc.Identifier == "" {
 		return DNSRecord{}, ErrMissingZoneID
@@ -217,7 +217,7 @@ func (api *API) CreateDNSRecord(ctx context.Context, rc *ResourceContainer, para
 
 // ListDNSRecords returns a slice of DNS records for the given zone identifier.
 //
-// API reference: https://api.cloudflare.com/#dns-records-for-a-zone-list-dns-records
+// API reference: https://developers.cloudflare.com/api/resources/dns/subresources/records/methods/list/
 func (api *API) ListDNSRecords(ctx context.Context, rc *ResourceContainer, params ListDNSRecordsParams) ([]DNSRecord, *ResultInfo, error) {
 	if rc.Identifier == "" {
 		return nil, nil, ErrMissingZoneID
@@ -268,7 +268,7 @@ var ErrMissingDNSRecordID = errors.New("required DNS record ID missing")
 // GetDNSRecord returns a single DNS record for the given zone & record
 // identifiers.
 //
-// API reference: https://api.cloudflare.com/#dns-records-for-a-zone-dns-record-details
+// API reference: https://developers.cloudflare.com/api/resources/dns/subresources/records/methods/get/
 func (api *API) GetDNSRecord(ctx context.Context, rc *ResourceContainer, recordID string) (DNSRecord, error) {
 	if rc.Identifier == "" {
 		return DNSRecord{}, ErrMissingZoneID
@@ -293,7 +293,7 @@ func (api *API) GetDNSRecord(ctx context.Context, rc *ResourceContainer, recordI
 // UpdateDNSRecord updates a single DNS record for the given zone & record
 // identifiers.
 //
-// API reference: https://api.cloudflare.com/#dns-records-for-a-zone-update-dns-record
+// API reference: https://developers.cloudflare.com/api/resources/dns/subresources/records/methods/edit/
 func (api *API) UpdateDNSRecord(ctx context.Context, rc *ResourceContainer, params UpdateDNSRecordParams) (DNSRecord, error) {
 	if rc.Identifier == "" {
 		return DNSRecord{}, ErrMissingZoneID
@@ -323,7 +323,7 @@ func (api *API) UpdateDNSRecord(ctx context.Context, rc *ResourceContainer, para
 // DeleteDNSRecord deletes a single DNS record for the given zone & record
 // identifiers.
 //
-// API reference: https://api.cloudflare.com/#dns-records-for-a-zone-delete-dns-record
+// API reference: https://developers.cloudflare.com/api/resources/dns/subresources/records/methods/delete/
 func (api *API) DeleteDNSRecord(ctx context.Context, rc *ResourceContainer, recordID string) error {
 	if rc.Identifier == "" {
 		return ErrMissingZoneID
